@@ -30,7 +30,7 @@ public class Runner {
             }));
         }
 
-        run(2018, 6);
+        run(2018, 7);
         //runAll(2018, 2);
     }
 }
