@@ -1,5 +1,8 @@
 package util;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 public class Runner {
 
     public static void runAll(int year, int upToDay) {
@@ -8,7 +11,7 @@ public class Runner {
         }
     }
 
-    public static void run(int year, int day) {
+    private static void run(int year, int day) {
         AdventOfCode challenge = DayLoader.getClassForDay(year, day);
         if (challenge == null) throw new RuntimeException("Unable to load class/input");
         //Timer.startTimer();
@@ -18,6 +21,15 @@ public class Runner {
     }
 
     public static void main(String[] args) {
-        runAll(2018, 1);
+        if (System.getenv("AOC_VERBOSE").equals("false")) {
+            System.setErr(new PrintStream(new OutputStream() {
+                @Override
+                public void write(int b) {
+                }
+            }));
+        }
+
+        run(2018, 2);
+        //runAll(2018, 2);
     }
 }
