@@ -22,6 +22,7 @@ public class Runner {
 
     public static void main(String[] args) {
         if (System.getenv("AOC_VERBOSE").equals("false")) {
+            // disable stderr console output
             System.setErr(new PrintStream(new OutputStream() {
                 @Override
                 public void write(int b) {
@@ -29,7 +30,7 @@ public class Runner {
             }));
         }
 
-        run(2018, 2);
+        run(2018, 3);
         //runAll(2018, 2);
     }
 }
